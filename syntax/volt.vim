@@ -3,25 +3,18 @@ if !exists('g:volt_syntax_html')
    let g:volt_syntax_html=1
 endif
 
-" For version 5.x: Clear all syntax items
-" For version 6.x: Quit when a syntax file was already loaded
+" Quit when a syntax is already loaded
 if !exists("main_syntax")
-  if version < 600
-    syntax clear
-  elseif exists("b:current_syntax")
-  finish
-endif
+  if exists("b:current_syntax")
+    finish
+  endif
   let main_syntax = 'volt'
 endif
 
 " Pull in the HTML syntax.
 if g:volt_syntax_html
-  if version < 600
-    so <sfile>:p:h/html.vim
-  else
-    runtime! syntax/html.vim
-    unlet b:current_syntax
-  endif
+  runtime! syntax/html.vim
+  unlet b:current_syntax
 endif
 
 syntax case match
@@ -79,15 +72,8 @@ syn match voltStatement containedin=voltTagBlock contained /\<with\(out\)\?\s\+c
 
 
 " Define the default highlighting.
-" For version 5.7 and earlier: only when not done already
-" For version 5.8 and later: only when an item doesn't have highlighting yet
-if version >= 508 || !exists("did_volt_syn_inits")
-  if version < 508
-    let did_volt_syn_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
+if !exists("did_volt_syn_inits")
+  command -nargs=+ HiLink hi def link <args>
 
   HiLink voltPunctuation voltOperator
   HiLink voltAttribute voltVariable
