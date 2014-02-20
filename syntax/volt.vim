@@ -1,17 +1,3 @@
-" Vim syntax file
-" Language:	Jinja template
-" Maintainer:	Armin Ronacher <armin.ronacher@active-4.com>
-" Last Change:	2008 May 9
-" Version:      1.1
-"
-" Known Bugs:
-"   because of odd limitations dicts and the modulo operator
-"   appear wrong in the template.
-"
-" Changes:
-"
-"     2008 May 9:     Added support for Jinja2 changes (new keyword rules)
-
 " .vimrc variable to disable html highlighting
 if !exists('g:volt_syntax_html')
    let g:volt_syntax_html=1
