@@ -1,6 +1,6 @@
 " .vimrc variable to disable html highlighting
-if !exists('g:volt_syntax_html')
-   let g:volt_syntax_html=1
+if !exists('g:volt_syntax_php')
+   let g:volt_syntax_php=1
 endif
 
 " Quit when a syntax is already loaded
@@ -11,9 +11,9 @@ if !exists("main_syntax")
   let main_syntax = 'volt'
 endif
 
-" Pull in the HTML syntax.
-if g:volt_syntax_html
-  runtime! syntax/html.vim
+" Pull in the PHP syntax
+if g:volt_syntax_php
+  runtime! syntax/php.vim
   unlet b:current_syntax
 endif
 
