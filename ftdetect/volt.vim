@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.volt setfiletype volt
+au BufNewFile,BufRead *.volt set filetype=volt
